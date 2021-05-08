@@ -19,20 +19,28 @@ const books = [
     author: 'Barack Obama',
   },
 ]
-const names = ['john', 'peter', 'susan']
-const newName = names.map((name) => {
-  return <h1>{name}</h1>
-})
-console.log(newName)
+
 function BookList() {
-  return <section className='booklist'>{newName}</section>
+  return (
+    <section className='booklist'>
+      {books.map((book) => {
+        return (
+          // <div>
+          //   <h3>{title}</h3>
+          //   <h6>{author}</h6>
+          // </div>
+          <Book book={book}></Book>
+        )
+      })}
+    </section>
+  )
 }
 
 // const Greetings = () => {
 //   return React.createElement('h1', 'hello word, I am Theo')
 // }
 const Book = (props) => {
-  const { img, title, author } = props
+  const { img, title, author } = props.book
   console.log(props)
   return (
     <article className='book'>
